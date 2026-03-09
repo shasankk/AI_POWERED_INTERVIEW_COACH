@@ -12,22 +12,30 @@ This will automatically:
 3. Open your default web browser to the application.
 
 ### Option 2: Manual Start (Terminal)
-**IMPORTANT:** You must use the virtual environment where dependencies are installed.
+**IMPORTANT:** You must configure your environment and use the virtual environment where dependencies are installed.
 
-1. **Activate Virtual Environment**:
+1. **Set Up Environment Variables**:
+   In the `web_ui` folder, copy `.env.example` to a new file named `.env`, and fill in your API keys:
+   ```env
+   GEMINI_API_KEY=your_gemini_key_here
+   GROQ_API_KEY=your_groq_key_here
+   OPENROUTER_API_KEY=your_openrouter_key_here
+   ```
+
+2. **Activate Virtual Environment**:
    ```bash
    .\venv\Scripts\activate
    ```
 
-2. **Run the App**:
+3. **Run the App**:
    Navigate to the `web_ui` folder and run the Python script:
    ```bash
    cd web_ui
    python app.py
    ```
 
-3. **Open Browser**:
-   Go to `http://127.0.0.1:5000` in your web browser.
+4. **Open Browser**:
+   Go to `http://127.0.0.1:5000/static/index.html` or the location provided in your terminal in your web browser.
 
 ## ✨ Features
 - **Mock Interview Loop**: Real-time conversational interview with AI (Whisper STT + Mock LLM + gTTS).
