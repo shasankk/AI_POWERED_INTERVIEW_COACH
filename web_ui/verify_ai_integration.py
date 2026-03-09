@@ -4,8 +4,13 @@ import os
 print("--- VERIFYING AI INTEGRATION ---")
 
 try:
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("ERROR: GEMINI_API_KEY environment variable not set.")
+        exit(1)
+        
     # Initialize Client with the exact key used in the app
-    client = genai.Client(api_key="AIzaSyAHPJPhQjbgLMeGswRA5EoqPhaAuXs2guk")
+    client = genai.Client(api_key=api_key)
     
     # Test Prompt
     prompt = "Generate a short, one-sentence welcome message for a technical interview candidate."
