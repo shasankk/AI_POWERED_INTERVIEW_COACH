@@ -4,7 +4,12 @@ import os
 print("--- LISTING AVAILABLE MODELS ---")
 
 try:
-    client = genai.Client(api_key="AIzaSyAHPJPhQjbgLMeGswRA5EoqPhaAuXs2guk")
+    api_key = os.environ.get("GEMINI_API_KEY")
+    if not api_key:
+        print("ERROR: GEMINI_API_KEY environment variable not set.")
+        exit(1)
+        
+    client = genai.Client(api_key=api_key)
     for model in client.models.list():
         print(model.name)
 except Exception as e:
